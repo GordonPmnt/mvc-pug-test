@@ -11,4 +11,15 @@ Post.getAll = (callback) => {
    )
 }
 
+Post.postOnePost = (req, callback) => {
+    const formData = req.fields
+    connection.query(
+        'INSERT INTO posts SET ?',
+        formData,
+        (err, results, fields) => {
+            callback(err, results, fields)
+        }
+    )
+}
+
 module.exports = Post;

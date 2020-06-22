@@ -7,4 +7,10 @@ const getAllPosts = (req, res, next) => {
    })
 }
 
-module.exports = { getAllPosts };
+const createPost = (req, res, next) => {
+    Post.postOnePost(req, (err, results) => {
+        next()
+    })
+}
+
+module.exports = { getAllPosts, createPost };
